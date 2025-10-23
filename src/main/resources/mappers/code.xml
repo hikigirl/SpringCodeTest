@@ -5,6 +5,30 @@
 <!-- src/main/resources -> config -> address.xml -->
 <!-- XML Mapper -->
 <mapper namespace="code">
-	
+	<!-- mybatis 단위테스트용 쿼리 -->
 	<select id="count" resultType="Integer">select count(*) from tblAddress</select>
+	
+	<!-- 카테고리 + select -->
+	<select id="llist" resultType="ldto">
+		select * from tblLanguage
+	</select>
+	
+	<!-- 코드 게시판 + 글쓰기(insert) -->
+	<insert id="add" parameterType="cdto">
+		insert into tblCode (seq, subject, code, regdate, language)
+			values (seqCode.nextVal, #{subject}, #{code}, default, #{language})
+	</insert>
+	
+	<!-- 코드 게시판 + 목록 보기 -->
+	<select id="list" resultType="cdto">
+		select * from tblCode order by seq desc
+	</select>
+	
+	<!-- 코드 게시판 + 상세보기 -->
+	<select id="get" parameterType="String" resultType="cdto">
+		select * from tblCode
+			where seq = #{seq} 
+		order by seq desc
+	</select>
+	
 </mapper>

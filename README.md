@@ -21,7 +21,7 @@
 - log4j, lombok, 등등 뭐 많이 추가하고 버전도 변경
 
 #### MyBatis 세팅
-##### MyBatis 세팅이 완료되면 단위 테스트 필수
+##### MyBatis 세팅이 완료되면 단위 테스트 필수!!
 - `root-context.xml` -> bean 4개 생성
 - log4j 설정
   - `src/main/resources` 폴더에 `log4j.xml`과 `log4jdbc.log4j2.properties` 두가지 추가
@@ -46,6 +46,7 @@
 ---
 
 #### 파일 및 패키지 세팅
+##### src/main/java
 - Code -> `script.sql`
 - com.test.code.controller 
   - `CodeController.java` : 메인 컨트롤러
@@ -58,3 +59,8 @@
   - `list.jsp`
   - `view.jsp`
   - `add.jsp`
+
+##### src/test/java
+- com.test.code.model
+  - `DBTests.java`
+  - `CodeDAOImplTests.java`
