@@ -11,4 +11,7 @@ public class CodeDTO {
 	private String code;
 	private String regdate;
 	private String language;
+	
+	//1:1 관계 -> association
+	private LanguageDTO ldto;
 }

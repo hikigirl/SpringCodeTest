@@ -29,5 +29,12 @@ create table tblCode(
 );
 
 select * from tblCode;
+delete from tblCode where seq=23;
 
 commit;
+
+
+select * from tblCode c
+    inner join tblLanguage l
+        on c.language = l.name
+    order by seq desc;

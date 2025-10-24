@@ -20,8 +20,27 @@
 	</insert>
 	
 	<!-- 코드 게시판 + 목록 보기 -->
-	<select id="list" resultType="cdto">
-		select * from tblCode order by seq desc
+	<resultMap type="cdto" id="codeMap">
+		<id column="seq" property="seq"/>
+		<result column="subject" property="subject" />
+		<result column="code" property="code" />
+		<result column="regdate" property="regdate" />
+		<result column="language" property="language" />
+		<association property="ldto" resultMap="languageMap"></association>
+	</resultMap>
+	
+	<resultMap type="ldto" id="languageMap">
+		<id column="name" property="name" />
+		<result column="icon" property="icon" />
+		<result column="color" property="color" />
+	</resultMap>
+	
+	<select id="list" resultMap="codeMap">
+		<!-- select * from tblCode order by seq desc -->
+		select * from tblCode c
+		    inner join tblLanguage l
+		        on c.language = l.name
+		    order by seq desc
 	</select>
 	
 	<!-- 코드 게시판 + 상세보기 -->

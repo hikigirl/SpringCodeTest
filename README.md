@@ -64,3 +64,5 @@
 - com.test.code.model
   - `DBTests.java`
   - `CodeDAOImplTests.java`
+
+dto의 변수명, DB 컬럼명, 태그의 name 속성을 최대한 맞춰야 좋다
